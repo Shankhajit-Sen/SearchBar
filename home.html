@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+#myInput {
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#myUL {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#myUL li a {
+  border: 1px solid #ddd;
+  margin-top: -1px; /* Prevent double borders */
+  background-color: #f6f6f6;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block
+}
+
+#myUL li a:hover:not(.header) {
+  background-color: #eee;
+
+}  
+
+</style>
+</head>
+<body>
+
+<h2 style="color:red;">
+    SearchBar
+</h2>
+
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for college name, course name or degree..." title="Type in a name">
+
+<ul id="myUL">
+  <li><a target="_blank" href="http://www.iitd.ac.in/">IIT Delhi</a></li>
+  <li><a target="_blank" href="http://www.iitb.ac.in/">IIT Mumbai</a></li>
+  <li><a target="_blank" href="https://www.iitm.ac.in">IIT Madras</a></li>
+  <li><a target="_blank" href="http://www.iitkgp.ac.in/">IIT Kharagpur</a></li>
+  <li><a target="_blank" href="http://www.iitr.ac.in/">IIT Roorkee</a></li>
+  <li><a target="_blank" href="https://www.iitbbs.ac.in">IIT Bhubaneswar</a></li>
+  <li><a target="_blank" href="http://www.iitp.ac.in/">IIT Patna</a></li>
+  <li><a target="_blank" href="https://www.bits-pilani.ac.in">BITS Pilani</a></li>
+  <li><a target="_blank" href="https://kiit.ac.in">KIIT</a></li>
+  <li><a target="_blank" href="https://vit.ac.in">VIT</a></li>
+  <li><a target="_blank" href="https://www.collegedekho.com/articles/which-are-the-best-engineering-courses-in-india/">Engineering</a></li>
+  <li><a target="_blank" href="https://collegedunia.com/courses/master-of-business-administration-mba">MBA</a></li>
+  <li><a target="_blank" href="https://www.shiksha.com/medicine-health-sciences/pharmacy-chp">Pharma</a></li>
+  <li><a target="_blank" href="https://collegedunia.com/courses/courses-diploma">Diploma</a></li>
+  <li><a target="_blank" href="hhttps://www.bachelorsportal.com">Bachelors</a></li>
+  <li><a target="_blank" href="https://www.mastersportal.com">Masters</a></li>
+  <li><a target="_blank" href="https://www.phdportal.com">Phd</a></li>
+</ul>
+
+<script>
+function myFunction() {
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
+</script>
+
+</body>
+</html>
